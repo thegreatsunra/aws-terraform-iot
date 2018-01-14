@@ -1,0 +1,13 @@
+!.gitkeep
+.#*
+.DS_Store
+thumbs.db
+*.log*
+*.zip*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
