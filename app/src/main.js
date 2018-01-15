@@ -2,6 +2,7 @@ import axios from 'axios'
 import Vue from 'vue'
 
 import App from './App'
+import cognitoAuth from './cognito'
 import router from './router'
 import store from './store'
 
@@ -16,6 +17,7 @@ router.beforeEach((to, from, next) => {
 /* eslint-disable no-new */
 new Vue({
   components: { App },
+  cognitoAuth,
   router,
   store,
   template: '<App/>'
