@@ -1,0 +1,18 @@
+@import 'base.font';
+@import 'base.color';
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $base-bg-color;
+  color: $base-color;
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  overflow-y: hidden;
+}

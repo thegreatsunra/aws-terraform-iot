@@ -1,0 +1,15 @@
+@import 'base.static';
+
+$base-font-size:             16px;
+
+$base-font-size--xs:         round($base-font-size * 0.625);
+$base-font-size--sm:         round($base-font-size * 0.875);
+$base-font-size--lg:         round($base-font-size * 1.125);
+$base-font-size--xl:         round($base-font-size * 1.5);
+
+$base-font-family:           Roboto, Helvetica, Arial, sans-serif;
+$base-font-family-monospace: 'Roboto Mono', 'Courier New', Courier, monospace;
+
+$base-line-height:           round($base-font-size * 1.5);
+
+$base-font-folder:           $base-static-folder + '/fonts';

@@ -1,0 +1,4 @@
+$base-static-folder: '../static';
+$base-images-folder: $base-static-folder + '/images';
+$base-logo: $base-images-folder + '/logo';
+$base-logo-png: $base-logo + '.png';

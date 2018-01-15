@@ -1,0 +1,16 @@
+// apply a natural box layout model to all elements, but allow components to change
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// prevent border around focused buttons
+:focus {
+  outline: none;
+}
+::-moz-focus-inner {
+  border: 0;
+}
