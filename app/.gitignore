@@ -1,0 +1,19 @@
+!.gitkeep
+.#*
+.DS_Store
+
+.env
+dist/**
+node_modules/**
+test/unit/coverage/**
+test/e2e/reports/**
+thumbs.db
+*.log*
+*.zip*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
