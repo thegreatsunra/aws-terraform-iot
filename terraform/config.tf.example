@@ -1,0 +1,51 @@
+variable "aws_account_id" {
+  default = "xxxxxxxxxxxx"
+  type = "string"
+}
+
+variable "aws_region" {
+  default = "xx-xxxx-x"
+  type = "string"
+}
+
+variable "company" {
+  default = "XXXXXXXXXXXXXXXX"
+  type = "string"
+}
+
+variable "aws_profile" {
+  default = "default"
+  type = "string"
+}
+
+##################################
+
+variable "s3_web_app" {
+  default = "appxxxxxxxxxxxxxxx.xxxxxxxxxxxx.net"
+  type = "string"
+}
+
+variable "s3_cloudtrail" {
+  default = "cloudtrailxxxxxxxxxxxxxxx"
+  type = "string"
+}
+
+##################################
+
+# CHANGE THESE VALUES AFTER YOUR FIRST `terraform apply`
+
+variable "authorizer_id" {
+  default = "xxxxxx"
+  type = "string"
+}
+
+variable "authorization" {
+  default = "NONE"
+  # default = "COGNITO_USER_POOLS"
+  type = "string"
+}
+
+variable "cognito_app_client_id" {
+  default = "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+  type = "string"
+}
