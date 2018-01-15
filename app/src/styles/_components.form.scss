@@ -1,0 +1,71 @@
+@import 'base.font';
+@import 'base.color';
+@import 'base.spacing';
+
+.form {
+  &__group {
+    margin-bottom: $base-spacing-unit;
+  }
+  &__label {
+    display: block;
+    font-weight: 300;
+    font-size: $base-font-size--sm;
+    color: $silver;
+    &--error {
+      // color: $red;
+    }
+  }
+  &__control {
+    &--text {
+      font-family: $base-font-family;
+      font-size: $base-font-size--lg;
+      border: 1px solid $moon-gray;
+      padding: ($base-spacing-unit--sm + 2) $base-spacing-unit--sm($base-spacing-unit--sm + 2) $base-spacing-unit--sm;
+      border-radius: $base-spacing-unit--xs;
+      &::placeholder {
+        font-size: $base-font-size;
+        color: $silver;
+        font-weight: 300;
+      }
+      &:focus {
+        border-color: $blue;
+      }
+    }
+    &--select {
+      font-family: $base-font-family;
+      font-size: $base-font-size--lg;
+      padding: $base-spacing-unit--sm;
+      height: $base-spacing-unit--lg + $base-spacing-unit--sm;
+    }
+    &--error {
+      &.form__control--text {
+        border-color: $red;
+        color: $red;
+      }
+    }
+    &--resolved {
+      &.form__control--text {
+        border-color: $blue;
+        color: $blue;
+      }
+    }
+  }
+  &__message {
+    color: $silver;
+    padding: $base-spacing-unit--sm 0 $base-spacing-unit--sm 0;
+    font-size: $base-font-size--sm;
+    &--error {
+      color: $red;
+    }
+    &--resolved {
+      color: $blue;
+    }
+  }
+  &__value {
+    &--text {
+      border: 1px solid transparent;
+      padding: $base-spacing-unit--sm;
+      font-size: $base-font-size--lg;
+    }
+  }
+}
