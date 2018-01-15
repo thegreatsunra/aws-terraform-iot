@@ -15,4 +15,7 @@ export default {
 
 <style lang="scss">
   @import './styles/app';
+  .view {
+    overflow: auto;
+  }
 </style>
