@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import cognitoAuth from '@/cognito'
 
+import DevicesInfo from '@/components/views/Devices/Info'
 import DevicesList from '@/components/views/Devices/List'
 import Home from '@/components/views/Home'
 
@@ -56,6 +57,11 @@ export default new Router({
       name: 'devices',
       path: '/devices',
       component: DevicesList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/devices/:id',
+      component: DevicesInfo,
       beforeEnter: requireAuth
     },
     {

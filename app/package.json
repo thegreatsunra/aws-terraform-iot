@@ -27,6 +27,7 @@
     "amazon-cognito-identity-js": "^1.31.0",
     "aws-sdk": "^2.181.0",
     "axios": "^0.17.1",
+    "date-fns": "^1.29.0",
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "vue": "^2.5.13",
