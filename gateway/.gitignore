@@ -1,0 +1,19 @@
+!.gitkeep
+.#*
+.DS_Store
+
+config.js
+node_modules/**
+thumbs.db
+*.log*
+*.crt
+*.key
+*.pem
+*.zip*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
