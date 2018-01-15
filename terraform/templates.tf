@@ -294,3 +294,41 @@ data "template_file" "tf_cognito_unauth_policy" {
 }
 EOF
 }
+
+data "template_file" "tf_events_list_request" {
+  template = <<EOF
+{
+  "deviceId": "$input.params('deviceId')"
+}
+EOF
+}
+
+data "template_file" "tf_list_response" {
+  template = <<EOF
+#set($allParams = $input.params())
+{
+  "ok" : true,
+  "items" : $input.json('$')
+}
+
+EOF
+}
+
+data "template_file" "tf_info_request" {
+  template = <<EOF
+{
+  "id": "$input.params('id')"
+}
+EOF
+}
+
+data "template_file" "tf_info_response" {
+  template = <<EOF
+#set($allParams = $input.params())
+{
+  "ok" : true,
+  "item" : $input.json('$')
+}
+
+EOF
+}
