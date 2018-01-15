@@ -1,6 +1,11 @@
 !.gitkeep
 .#*
 .DS_Store
+.terraform*
+.terraform/**
+
+config.tf
+terraform.tfstate*
 thumbs.db
 *.log*
 *.zip*
