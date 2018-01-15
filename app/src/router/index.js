@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import cognitoAuth from '@/cognito'
 
+import DevicesList from '@/components/views/Devices/List'
 import Home from '@/components/views/Home'
 
 import ChangePassword from '@/components/views/Auth/ChangePassword'
@@ -50,6 +51,12 @@ export default new Router({
     {
       path: '/account/verify-email-address',
       component: VerifyEmailAddress
+    },
+    {
+      name: 'devices',
+      path: '/devices',
+      component: DevicesList,
+      beforeEnter: requireAuth
     },
     {
       path: '/home',
