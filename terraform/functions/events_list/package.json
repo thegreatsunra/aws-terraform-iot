@@ -1,0 +1,44 @@
+{
+  "name": "lambda-boilerplate",
+  "description": "lambda-boilerplate",
+  "version": "0.2.0",
+  "homepage": "https://github.com/thegreatsunra/lambda-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thegreatsunra/lambda-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thegreatsunra/lambda-boilerplate/issues"
+  },
+  "author": "Dane Petersen <thegreatsunra@gmail.com>",
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Dane Petersen",
+      "email": "thegreatsunra@gmail.com",
+      "url": "https://github.com/thegreatsunra"
+    }
+  ],
+  "engines": {
+    "node": ">=6.10.0",
+    "npm": ">=3.10.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "lambda": "(cd ./src && sam local invoke 'HelloWorld' -e event.json)",
+    "lint": "eslint --ext .js --fix ./",
+    "lint:fix": "npm run lint",
+    "start": "npm run lambda",
+    "validate": "(cd ./src && sam validate)"
+  },
+  "main": "index.js"
+}
