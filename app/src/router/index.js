@@ -6,6 +6,8 @@ import cognitoAuth from '@/cognito'
 import DevicesInfo from '@/components/views/Devices/Info'
 import DevicesList from '@/components/views/Devices/List'
 import DevicesUpdate from '@/components/views/Devices/Update'
+import EventsInfo from '@/components/views/Events/Info'
+import EventsList from '@/components/views/Events/List'
 import Home from '@/components/views/Home'
 
 import ChangePassword from '@/components/views/Auth/ChangePassword'
@@ -69,6 +71,18 @@ export default new Router({
       path: '/devices/:id/edit',
       component: DevicesUpdate,
       beforeEnter: requireAuth
+    },
+    {
+      name: 'events',
+      path: '/events',
+      component: EventsList,
+      beforeEnter: requireAuth
+    },
+    {
+      path: '/events/:id',
+      component: EventsInfo,
+      beforeEnter: requireAuth
+    },
     {
       path: '/home',
       component: Home,
