@@ -290,5 +290,16 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 ### Deploy your local web app to AWS S3
 
+**Note: The `npm run deploy` script requires you have the AWS CLI installed and the proper credentials configured on your computer to access your AWS S3 bucket.**
+
+1) From your web app's root folder, run `npm run build` to generate a distribution version of your app
+
+2) Edit `app/package.json` and change the URL values in the `deploy` script to match the location of your own AWS S3 bucket you created with Terraform
+
+3) Save your changes to `app/package.json`
+
+4) At the command line, navigate to the `app` folder of this repo and run `npm deploy` to use the AWS CLI to upload your app to S3
+
+5) Test your app at your S3 URL and make sure it works
 
 ### TODO: Use Cloudflare or something to set up the DNS CNAME for your app hosted on S3
