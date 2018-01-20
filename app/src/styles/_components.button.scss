@@ -1,0 +1,113 @@
+@import 'base.color';
+@import 'base.font';
+@import 'base.spacing';
+
+@mixin btn--color(
+  $color: $dark-gray, 
+  $bg-color: $light-gray, 
+  $border-color: $moon-gray, 
+  $hover-color: $black, 
+  $hover-bg-color: $white,
+  $hover-border-color: $border-color
+) {
+  color: $color;
+  background-color: $bg-color;
+  border-color: $border-color;
+  &:hover {
+    color: $hover-color;
+    background-color: $hover-bg-color;
+    border-color: $hover-border-color;
+  }
+}
+
+@mixin btn {
+  @include btn--color();
+  font-family: $base-font-family;
+  transition: color, background-color 250ms ease-out;
+  font-size: $base-font-size;
+  line-height: 1.25;
+  text-align: center;
+  padding: ($base-spacing-unit * 0.6875) $base-spacing-unit ($base-spacing-unit * 0.5625);
+  border-radius: $base-spacing-unit--xs;
+  display: inline-block;
+  text-decoration: none;
+  border-width: 1px;
+  border-style: solid;
+  &:hover {
+    cursor: pointer;
+  }
+  &--xs {
+    border-radius: $base-spacing-unit--xs;
+    font-size: $base-font-size--xs;
+    padding: $base-spacing-unit--xs;
+  }
+  &--sm {
+    border-radius: $base-spacing-unit--xs;
+    font-size: $base-font-size--sm;
+    padding: $base-spacing-unit--sm;
+  }
+  &--lg {
+    border-radius: $base-spacing-unit--sm;
+    font-size: $base-font-size;
+    padding: $base-spacing-unit;
+  }
+  &--xl {
+    border-radius: $base-spacing-unit;
+    font-size: $base-font-size--lg;
+    padding: $base-spacing-unit--lg;
+  }
+&--primary {
+    @include btn--color(
+      $color: $white,
+      $bg-color: $blue,
+      $border-color: $blue,
+      $hover-color: $white,
+      $hover-bg-color: $dark-blue,
+      $hover-border-color: $dark-blue
+    )
+  }
+  &--inverse {
+    @include btn--color(
+      $color: $white, 
+      $bg-color: $black, 
+      $border-color: $dark-gray, 
+      $hover-color: $white, 
+      $hover-bg-color: $dark-gray,
+      $hover-border-color: $dark-gray
+    )
+  }
+  &--success {
+    @include btn--color(
+      $color: $white, 
+      $bg-color: $dark-green, 
+      $border-color: $dark-green, 
+      $hover-color: $white, 
+      $hover-bg-color: $green,
+      $hover-border-color: $green
+    )
+  }
+  &--warning {
+    @include btn--color(
+      $color: $white, 
+      $bg-color: $orange, 
+      $border-color: $orange, 
+      $hover-color: $white, 
+      $hover-bg-color: $light-red,
+      $hover-border-color: $light-red
+    )
+  }
+  &--danger {
+    @include btn--color(
+      $color: $white, 
+      $bg-color: $dark-red, 
+      $border-color: $dark-red, 
+      $hover-color: $white, 
+      $hover-bg-color: $red,
+      $hover-border-color: $red
+    )
+  }
+}
+
+.btn {
+  @include btn;
+}

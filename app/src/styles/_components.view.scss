@@ -1,0 +1,19 @@
+@import 'base.spacing';
+
+@mixin view {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  &--padded {
+    padding: $base-spacing-unit--lg;
+  }
+  &--flex {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.view {
+  @include view;
+}

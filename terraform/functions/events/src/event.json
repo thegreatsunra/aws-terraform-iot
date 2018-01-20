@@ -1,0 +1,14 @@
+{
+  "at": "2017-11-10T20:58:06.061Z",
+  "id": "0rtPCFg1QfKAuiu6",
+  "cmd": "publish",
+  "dup": false,
+  "qos": 0,
+  "retain": false,
+  "topicIdType": "pre-defined",
+  "topicId": 41,
+  "msgId": 14,
+  "property": "VITT",
+  "from": "kl4rdlnw",
+  "ticks": null
+}

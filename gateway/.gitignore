@@ -1,13 +1,14 @@
 !.gitkeep
 .#*
 .DS_Store
-.terraform*
-.terraform/**
 
-config.tf
-terraform.tfstate*
+config.js
+node_modules/**
 thumbs.db
 *.log*
+*.crt
+*.key
+*.pem
 *.zip*
 
 # Editor directories and files

@@ -1,0 +1,10 @@
+@mixin app {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app {
+  @include app;
+}

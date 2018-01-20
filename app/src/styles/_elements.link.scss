@@ -1,0 +1,10 @@
+@import 'base.color';
+
+a {
+  transition: color 250ms ease-out;
+  color: $blue;
+  text-decoration: underline;
+  &:hover {
+    color: $dark-blue;
+  }
+}
