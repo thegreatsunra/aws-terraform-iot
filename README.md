@@ -179,6 +179,11 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 ### Create, configure, and start your local Gateway app
 
+1) Open a Terminal window, and navigate to the `gateway` folder of this repo
+
+3) Run `yarn` to install the Node dependencies for the Gateway
+
+2) Make a copy of `gateway/config.example.js` and name it `config.js`
 
 #### Create a Thing
 
@@ -194,6 +199,16 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 #### Configure your Gateway
 
+1) On your computer, rename the certificate files you downloaded from AWS IoT and put them in your local Gateway app's `gateway/cert` folder. Refer to the `gateway/cert/*.example` files for the proper naming convention
+
+2) Open `gateway/config.js` in your favorite text editor
+
+3) Replace the `xxxxxxxx` values with your actual values from the AWS Management Console
+  * You can find your AWS IoT host URI on the "Settings" cog on AWS IoT portal main screen
+
+4) Save your changes to `gateway/config.js`
+
+5) At the command line, run `npm start` to start your Gateway
 
 ### Create, configure, and start your local web app
 
