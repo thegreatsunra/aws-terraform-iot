@@ -187,15 +187,63 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 #### Create a Thing
 
+1) Return to the AWS Management Console
+
+2) Navigate to AWS IoT
+
+3) Click Manage and then click Register a Thing
+
+4) Give your Thing a name and click Create Thing
 
 #### Create a Thing Certificate
 
+1) Click your Thing to view its details
+
+2) Click Security
+
+3) Click Create Certificate
+
+4) Create an IoT Thing Certificate
+
+5) Download the certificate, public key, private key, and the "Root CA for AWS IoT" (four files in total)
+
+6) **Click Activate to activate your certificate** (if you miss this step, it won't work!)
 
 #### Attach a Thing Policy
 
+1) From your Thing's details screen, click Attach a Policy
+
+2) Check the box next to the Policy that was created by Terraform (e.g. "thing")
+
+3) Click Done
 
 #### Create a Rule
 
+1) Return to the AWS Management Console's AWS IoT home screen
+
+2) Click Act
+
+3) Click Create a Rule
+
+4) Name your Rule (e.g. events)
+
+5) Enter `*` for Attribute to match all events
+
+6) Enter `events` as your Topic filter (if you choose another Topic name, be sure to change `gateway/config.js` in your Gateway app
+
+7) Leave Condition blank
+
+8) Click Add Action
+
+9) Choose "Invoke a Lambda function passing the message data"
+
+10) Click Configure Action
+
+11) Choose your AWS IoT Lambda Function from the dropdown (i.e. `events` unless you changed it in Terraform)
+
+12) Click Add Action
+
+13) Review your Rule and click "Create Rule"
 
 #### Configure your Gateway
 
