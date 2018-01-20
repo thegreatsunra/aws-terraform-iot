@@ -115,6 +115,33 @@ Now we have some manual work to do.
 
 ### Secure your API Gateway and run Terraform for the second time
 
+1) Copy the Authorizer ID value that is outputted by `terraform apply` and replace the placeholder `authorizer_id` value in `terraform/config.tf` with it
+
+2) In `terraform/config.tf` change the `authorization` value from `NONE` to `COGNITO_USER_POOLS`
+
+3) Log in to the AWS Management Console using your IAM admin user, and make sure you are in the AWS region (e.g. `us-east-1`) where Terraform deployed your architecture
+
+4) In the AWS Management Console, navigate to Cognito
+
+5) Click to manage your User Pools
+
+6) Click the User Pool created by Terraform
+
+7) Under General Settings, click App Clients
+
+8) Add a new App Client
+
+9) Name your App Client
+
+10) **Uncheck App Client Secret** (if App Client Secret is checked, your web app hosted on S3 will not work)
+
+11) Create your new App Client, and copy its App Client ID
+
+12) In `terraform/config.tf` change the placeholder value for `cognito_app_client_id` to your new App Client ID from Cognito
+
+13) At the command line, navigate to your project's `terraform` folder and run `terraform plan`
+
+14) Run `terraform apply` and reply `yes` when prompted
 
 ### Deploy your API
 
