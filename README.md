@@ -145,6 +145,19 @@ Now we have some manual work to do.
 
 ### Deploy your API
 
+1) In the AWS Management Console, navigate to API Gateway
+
+2) Choose the API Gateway created by Terraform (if you didn't rename it, it's probably called "Api")
+
+3) Click Actions and click "Deploy to Stage"
+
+4) Choose "Prod" as your stage
+
+5) Deploy your API
+
+6) Copy the Deploy URL for your API (you'll add it to your web app later)
+
+7) Access to your API should now be secured with Cognito
 
 ### Configure your Cognito account creation trigger
 
