@@ -98,7 +98,7 @@
   "scripts": {
     "build": "node build/build.js",
     "clean:dist": "rm -Rf ./dist",
-    "deploy": "npm run clean:dist && npm run build aws --profile default s3 rm s3://appoejvhswheijfjweju.thegreatsunra.com/ --recursive && aws --profile default s3 cp ./dist s3://appoejvhswheijfjweju.thegreatsunra.com/ --recursive --acl public-read",
+    "deploy": "npm run clean:dist && npm run build aws --profile default s3 rm s3://appxxxxxxxxxxxx.domain.tld/ --recursive && aws --profile default s3 cp ./dist s3://appxxxxxxxxxxxx.domain.tld/ --recursive --acl public-read",
     "dev": "node build/dev-server.js",
     "lint": "eslint --ext .js,.vue build config src test --fix",
     "start": "node build/dev-server.js",
