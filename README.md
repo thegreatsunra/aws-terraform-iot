@@ -260,6 +260,33 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 ### Create, configure, and start your local web app
 
+1) Open a Terminal window, and navigate to the `app` folder of this repo
+
+2) Run `yarn` to install the Node dependencies for the app
+
+3) Make a copy of `app/.env.example` and name it `.env` (`.env.example` is a dotfile so it might be hidden by default on your computer)
+
+4) Open `app/.env` in a text editor
+
+5) Replace the `xxxxxxxxxxxx` values with your actual values from AWS
+  * If you "edit" your Cognito Identity Pool, you can copy its ID from the AWS Management Console
+
+6) Save your changes to `app/.env`
+
+7) At the command line, run `npm run dev` to start the app
+
+8) The local development server for the app should start and automatically launch the app at [http://localhost:9000](http://localhost:9000) in your default web browser
+
+9) Create a new user account and password in your app's web UI (or log in with your existing Cognito credentials if you already have them)
+  * By default, the Cognito Pre Sign-Up Trigger Lambda function requires that all users creating a new account use an email address with `@gmail.com` as the domain
+
+10) Open your email, copy the verification code you received from Cognito, and submit it in your app's web UI
+
+11) Finally, log into your app with the username and password you provided
+
+12) The app should show incoming data from your Gateway
+  * If the app doesn't work, make sure your `.env` variables are set correctly
+  * If you do change your `.env` variables, stop and start the dev server to make sure your changes are applied
 
 ### Deploy your local web app to AWS S3
 
