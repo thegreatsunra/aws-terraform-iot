@@ -71,6 +71,47 @@ For more information, see [Configuring the AWS CLI](https://docs.aws.amazon.com/
 
 ### Prepare Terraform and run it for the first time
 
+1) Clone this repo by running this command in Terminal:
+
+```bash
+git clone git@github.com:thegreatsunra/aws-terraform-iot.git
+```
+
+2) Make a copy of `terraform/config.tf.example` and name it `config.tf`
+
+3) Edit the values in the first section of `terraform/config.tf` to match your own AWS Account ID, target AWS region, and your "company name"
+  * "Company name" is used in Cognito email templates for user account confirmations and messages
+  * If your computer has multiple AWS profiles configured in `~/.aws/credentials`, change the `default` value for `aws_profile` to the name of the profile you want to use
+  * Change the value for `s3_web_app` to the domain (and subdomain, if applicable) you want to use for hosting your web app
+    * Note that this value must be unique, and cannot be the same as any other S3 bucket in the whole world
+    * Change the value for `s3_cloudtrail` to a random (but recognizable by you) value that is unique, and will not be the same as any other S3 bucket in the whole world
+  * Don't touch the values for `authorizer_id`, `authorization`, or `cognito_app_client_id` yet; we'll change those after we finish our first run of the `terraform apply` script
+
+4) Save your changes to `terraform/config.tf`
+
+5) Open a Terminal window and navigate to your project's `terraform` folder
+
+6) At the command line, run this command to initialize your Terraform scripts and install all dependencies:
+
+```bash
+terraform init
+```
+
+7) Run this command to "plan" the execution of your Terraform scripts, and calculate how they will affect your AWS environment when applied:
+
+```bash
+terraform plan
+```
+
+8) Run this command to "apply" your Terraform scripts to your AWS environment, and reply `yes` when prompted:
+
+```bash
+terraform apply
+```
+
+Your architecture should now be deployed on your AWS account!
+
+Now we have some manual work to do.
 
 ### Secure your API Gateway and run Terraform for the second time
 
