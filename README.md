@@ -54,6 +54,20 @@ For more information, see [Configuring the AWS CLI](https://docs.aws.amazon.com/
 
 ### Set up all the things
 
+1) [Install Terraform](https://www.terraform.io/downloads.html)
+
+2) [Install Node](https://nodejs.org/) (version 8 or greater)
+
+3) [Install Yarn](https://yarnpkg.com/)
+
+4) [Install Git](https://git-scm.com/) or [GitHub Desktop](https://desktop.github.com/) (which installs Git by default)
+
+5) Create a [GitHub](https://github.com/) account (if you don't have one already)
+
+6) Install the [AWS Command Line Interface](https://aws.amazon.com/documentation/cli/)
+  * The easiest way to do this on macOS is with [Homebrew](https://brew.sh/)
+    1. First, install Homebrew on your Mac by running this command in Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+    1. Then, install the AWS CLI by running this command: `brew install awscli`
 
 ### Prepare Terraform and run it for the first time
 
