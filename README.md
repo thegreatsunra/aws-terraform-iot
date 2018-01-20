@@ -159,8 +159,23 @@ Now we have some manual work to do.
 
 7) Access to your API should now be secured with Cognito
 
-### Configure your Cognito account creation trigger
+### Configure your Cognito Pre Sign-Up Trigger
 
+This step is necessary because there's a bug between Terraform and the AWS Management Console, where even though a Lambda function _appears_ selected in the Triggers UI, it isn't.
+
+1) In the AWS Management Console, navigate to Cognito
+
+2) Open your User Pool
+
+3) Go to Triggers, and change the Pre Sign-Up Lambda function to "None" (even if it's already set to "Cognito")
+
+4) Scroll down and click "Save Changes"
+
+5) Go _back_ to Triggers, and change the Pre Sign-Up Lambda function _back_ to Cognito
+
+6) Scroll down and click "Save Changes"
+
+7) When a user creates a new account, they will now "trigger" the "Cognito" Lambda function
 
 ### Create, configure, and start your local Gateway app
 
