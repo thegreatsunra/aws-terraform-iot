@@ -96,14 +96,14 @@
   },
   "scripts": {
     "build": "node build/build.js",
-    "clean:dist": "rm -Rf ./dist",
-    "deploy": "npm run clean:dist && npm run build aws --profile default s3 rm s3://appxxxxxxxxxxxx.domain.tld/ --recursive && aws --profile default s3 cp ./dist s3://appxxxxxxxxxxxx.domain.tld/ --recursive --acl public-read",
-    "dev": "node build/dev-server.js",
-    "lint": "eslint --ext .js,.vue build config src test --fix",
-    "start": "node build/dev-server.js",
+    "clean": "rm -Rf ./dist",
+    "deploy": "npm run clean && npm run build aws --profile default s3 rm s3://appxxxxxxxxxxxx.domain.tld/ --recursive && aws --profile default s3 cp ./dist s3://appxxxxxxxxxxxx.domain.tld/ --recursive --acl public-read",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "lint": "eslint --fix --ext .js,.vue ./",
+    "start": "npm run dev",
     "test": "npm run test:unit && npm run test:e2e",
-    "test:e2e": "node test/e2e/runner.js chrome,safari,firefox test/e2e/specs",
-    "test:unit": "jest ./test/unit/specs --config ./.jestrc.json"
+    "test:e2e": "testcafe chrome ./test/e2e/specs",
+    "test:unit": "jest --config test/unit/jest.conf.js --coverage"
   },
   "browserslist": [
     "> 1%",
