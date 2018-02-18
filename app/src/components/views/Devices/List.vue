@@ -20,7 +20,7 @@
     </ul>
   </div>
 </template>
- 
+
 <script>
 import { distanceInWordsToNow } from 'date-fns'
 
@@ -48,4 +48,3 @@ export default {
   padding-bottom: 10px;
 }
 </style>
-

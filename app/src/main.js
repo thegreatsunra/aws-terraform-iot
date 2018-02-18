@@ -1,8 +1,10 @@
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import App from './App'
 import axios from 'axios'
+import cognitoAuth from './cognito'
 import Vue from 'vue'
 
-import App from './App'
-import cognitoAuth from './cognito'
 import router from './router'
 import store from './store'
 
@@ -16,9 +18,10 @@ router.beforeEach((to, from, next) => {
 
 /* eslint-disable no-new */
 new Vue({
+  el: '#app',
   components: { App },
   cognitoAuth,
   router,
   store,
   template: '<App/>'
-}).$mount('#app')
+})
