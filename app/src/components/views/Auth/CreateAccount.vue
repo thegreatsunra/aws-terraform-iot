@@ -47,7 +47,7 @@ export default {
           console.error(err)
         } else {
           console.log('Successfully created new account:', result)
-          this.$router.replace({path: '/account/verify-email-address', query: {username: this.username}})
+          this.$router.replace({ path: '/account/verify-email-address', query: { username: this.username } })
         }
       })
     }
