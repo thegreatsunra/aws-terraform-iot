@@ -1,12 +1,12 @@
 <template>
   <div id="app" class="app">
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
   mounted () {
     setInterval(() => this.$store.dispatch('pullDevices'), 5000)
   }

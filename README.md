@@ -12,20 +12,20 @@
 2) Sign into the AWS console using the AWS account you just created
   * This is your root AWS account
 
-3) Secure your root AWS account with Multi-Factor Authentication
+3) Secure your root AWS account with Multi-Factor Authentication:
   1. Click your name in the header
   1. Click "Security Credentials"
   1. Follow the prompts to enable MFA and add an MFA device
 
-4) Create an AWS Identity and Access Management admin user for yourself on your root AWS account
+4) Create an AWS Identity and Access Management admin user for yourself on your root AWS account:
   1. Go to IAM
   1. Create a new user
   1. Enable "programmatic access" and "AWS Management Console" access for your new user
   1. Set a password for your new user
-  1. Create an IAM group for your new user
-    1. Name the group (e.g. `admin`)
-    1. Add the `AdministratorAccess` IAM policy to the group
-    1. Create the group, and add your user to the group
+  1. Create an IAM group for your new user 
+    1. Name the group (e.g. `admin`) 
+    1. Add the `AdministratorAccess` IAM policy to the group 
+    1. Create the group, and add your user to the group 
   1. Finish creating your new IAM user
 
 5) Copy your new IAM user's Access Key ID and Secret Access Key
@@ -57,8 +57,6 @@ For more information, see [Configuring the AWS CLI](https://docs.aws.amazon.com/
 1) [Install Terraform](https://www.terraform.io/downloads.html)
 
 2) [Install Node](https://nodejs.org/) (version 8 or greater)
-
-3) [Install Yarn](https://yarnpkg.com/)
 
 4) [Install Git](https://git-scm.com/) or [GitHub Desktop](https://desktop.github.com/) (which installs Git by default)
 
@@ -181,7 +179,7 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 1) Open a Terminal window, and navigate to the `gateway` folder of this repo
 
-3) Run `yarn` to install the Node dependencies for the Gateway
+3) Run `npm install` to install the Node dependencies for the Gateway
 
 2) Make a copy of `gateway/config.example.js` and name it `config.js`
 
@@ -205,7 +203,7 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 4) Create an IoT Thing Certificate
 
-5) Download the certificate, public key, private key, and the "Root CA for AWS IoT" (four files in total)
+5) Download the certificate, public key, private key, and the "Root CA for AWS IoT" (four files in total) **Note to self:** the Root CA flow has changed, and now takes you to documentation that does a poor job explaining which of the four Root CA options you may want to download
 
 6) **Click Activate to activate your certificate** (if you miss this step, it won't work!)
 
@@ -227,9 +225,9 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 4) Name your Rule (e.g. events)
 
-5) Enter `*` for Attribute to match all events
+5) Enter `*` for Attribute to match all events **Note to self:** this step has changed as AWS IoT now uses a simplified SQL query syntax (`SELECT * FROM 'events'` seems to work)
 
-6) Enter `events` as your Topic filter (if you choose another Topic name, be sure to change `gateway/config.js` in your Gateway app
+6) Enter `events` as your Topic filter (if you choose another Topic name, be sure to change `gateway/config.js` in your Gateway app **Note to self:** AWS IoT now uses a simplified SQl query syntax instead of Topic names
 
 7) Leave Condition blank
 
@@ -262,7 +260,7 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 1) Open a Terminal window, and navigate to the `app` folder of this repo
 
-2) Run `yarn` to install the Node dependencies for the app
+2) Run `npm install` to install the Node dependencies for the app
 
 3) Make a copy of `app/.env.example` and name it `.env` (`.env.example` is a dotfile so it might be hidden by default on your computer)
 

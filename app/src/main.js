@@ -1,10 +1,10 @@
-import axios from 'axios'
 import Vue from 'vue'
-
-import App from './App'
-import cognitoAuth from './cognito'
+import App from './App.vue'
 import router from './router'
 import store from './store'
+import './registerServiceWorker'
+import axios from 'axios'
+import cognitoAuth from './cognito'
 
 Vue.http = Vue.prototype.$http = axios
 Vue.config.productionTip = false
@@ -14,11 +14,9 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-/* eslint-disable no-new */
 new Vue({
-  components: { App },
-  cognitoAuth,
   router,
   store,
-  template: '<App/>'
+  cognitoAuth,
+  render: h => h(App)
 }).$mount('#app')
