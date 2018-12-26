@@ -1,7 +1,7 @@
 {
   "name": "aws-terraform-iot",
   "description": "Web app for AWS Terraform IoT example",
-  "version": "0.0.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/thegreatsunra/aws-terraform-iot",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   "scripts": {
     "build": "vue-cli-service build",
     "clean": "rm -Rf ./dist",
-    "deploy": "npm run clean && npm run build && aws --profile default s3 rm s3://appxxxxxxxxxxxx.domain.tld/ --recursive && aws --profile default s3 cp ./dist s3://appxxxxxxxxxxxx.domain.tld/ --recursive --acl public-read",
+    "deploy": "npm run clean && npm run build && aws --profile default s3 rm s3://appqizxxodchowmzmrf.thegreatsunra.net/ --recursive && aws --profile default s3 cp ./dist s3://appqizxxodchowmzmrf.thegreatsunra.net/ --recursive --acl public-read",
     "lint": "vue-cli-service lint --fix",
     "serve": "vue-cli-service serve"
   },
