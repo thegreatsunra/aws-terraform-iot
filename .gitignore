@@ -1,6 +1,8 @@
 !.gitkeep
 .#*
 .DS_Store
+.env
+!.env.example
 .terraform*
 .terraform/**
 

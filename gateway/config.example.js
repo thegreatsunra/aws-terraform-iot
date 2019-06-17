@@ -7,7 +7,7 @@ const config = {
       certPath: path.join(__dirname, './cert/certificate.pem.crt'),
       caPath: path.join(__dirname, './cert/root-CA.pem'),
       host: 'xxxxxxxxxxxxx.iot.xx-xxxx-x.amazonaws.com',
-      topic: 'xxxxxxxxxxxxxx'
+      topic: 'events'
     }
   }
 }

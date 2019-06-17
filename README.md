@@ -141,6 +141,8 @@ Now we have some manual work to do.
 
 14) Run `terraform apply` and reply `yes` when prompted
 
+**Note to self:** Whenever you run `terraform apply` now, Terraform appears to blow out any App Clients that were created manually. This isn't desirable, of course, but it appears to be the reality until I isolate and fix it.
+
 ### Deploy your API
 
 1) In the AWS Management Console, navigate to API Gateway
@@ -271,7 +273,7 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 6) Save your changes to `app/.env`
 
-7) At the command line, run `npm run dev` to start the app
+7) At the command line, run `npm run serve` to start the app
 
 8) The local development server for the app should start and automatically launch the app at [http://localhost:9000](http://localhost:9000) in your default web browser
 

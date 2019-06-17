@@ -23,9 +23,9 @@ resource "aws_lambda_function" "lambda_function" {
   function_name    = "${var.lambda_name}"
   role             = "${var.lambda_role}"
   handler          = "index.handler"
-  source_code_hash = "${base64sha256(file("${data.archive_file.lambda_archive.output_path}"))}"
-  runtime          = "nodejs8.10",
-  memory_size      = 256,
+  source_code_hash = "${filebase64sha256("${data.archive_file.lambda_archive.output_path}")}"
+  runtime          = "nodejs10.x"
+  memory_size      = 256
   timeout          = 60
 }
 
