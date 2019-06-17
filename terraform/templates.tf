@@ -1,5 +1,5 @@
 data "template_file" "tf_iot_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     aws_account_id = "${var.aws_account_id}"
   }
@@ -23,7 +23,7 @@ EOF
 }
 
 data "template_file" "tf_s3_cloudtrail_policy" {
-  vars {
+  vars = {
     s3_bucket = "${var.s3_cloudtrail}"
   }
   template = <<EOF
@@ -59,7 +59,7 @@ EOF
 }
 
 data "template_file" "tf_auth_assume_role_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     identity_pool_id = "${aws_cognito_identity_pool.acip_identity_pool.id}"
   }
@@ -88,7 +88,7 @@ EOF
 }
 
 data "template_file" "tf_unauth_assume_role_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     identity_pool_id = "${aws_cognito_identity_pool.acip_identity_pool.id}"
   }
@@ -156,7 +156,7 @@ EOF
 }
 
 data "template_file" "tf_db_query_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     aws_account_id = "${var.aws_account_id}"
   }
@@ -177,7 +177,7 @@ EOF
 }
 
 data "template_file" "tf_db_update_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     aws_account_id = "${var.aws_account_id}"
   }
@@ -198,7 +198,7 @@ EOF
 }
 
 data "template_file" "tf_db_delete_policy" {
-  vars {
+  vars = {
     aws_region = "${var.aws_region}"
     aws_account_id = "${var.aws_account_id}"
   }
