@@ -99,9 +99,9 @@ resource "aws_lambda_function" "lambda_function" {
   function_name    = "${var.lambda_name}"
   role             = "${var.lambda_role}"
   handler          = "index.handler"
-  source_code_hash = "${base64sha256(file("${data.archive_file.lambda_archive.output_path}"))}"
-  runtime          = "nodejs6.10",
-  memory_size      = 256,
+  source_code_hash = "${filebase64sha256("${data.archive_file.lambda_archive.output_path}")}"
+  runtime          = "nodejs10.x"
+  memory_size      = 256
   timeout          = 60
 }
 
@@ -146,7 +146,7 @@ resource "aws_api_gateway_integration" "options_integration" {
   http_method = "${aws_api_gateway_method.options_method.http_method}"
   type        = "MOCK"
 
-  request_templates {
+  request_templates = {
     "application/json" = <<EOF
 {
   "statusCode": 200
@@ -167,7 +167,7 @@ resource "aws_api_gateway_integration_response" "options_integration_response" {
     "method.response.header.Access-Control-Allow-Origin" = "'*'"
   }
 
-  response_templates {
+  response_templates = {
     "application/json" = ""
   }
 }

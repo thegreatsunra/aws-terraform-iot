@@ -38,7 +38,7 @@ resource "aws_dynamodb_table" "table_events" {
     projection_type    = "ALL"
   }
 
-  tags {
+  tags = {
     Name        = "table_tag_name"
     Environment = "table_tag_environment"
   }
@@ -63,7 +63,7 @@ resource "aws_dynamodb_table" "table_devices" {
     projection_type    = "ALL"
   }
 
-  tags {
+  tags = {
     Name        = "table_tag_name"
     Environment = "table_tag_environment"
   }
