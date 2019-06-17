@@ -44,8 +44,8 @@ resource "aws_cognito_identity_pool" "acip_identity_pool" {
 resource "aws_cognito_identity_pool_roles_attachment" "acipra_role_attachment" {
   identity_pool_id = "${aws_cognito_identity_pool.acip_identity_pool.id}"
 
-  roles {
-    "authenticated" = "${aws_iam_role.cognito_auth_role.arn}"
-    "unauthenticated" = "${aws_iam_role.cognito_unauth_role.arn}"
+  roles = {
+    authenticated = "${aws_iam_role.cognito_auth_role.arn}"
+    unauthenticated = "${aws_iam_role.cognito_unauth_role.arn}"
   }
 }
