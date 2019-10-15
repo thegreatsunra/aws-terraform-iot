@@ -9,10 +9,10 @@ exports.handler = (data, context) => {
   }
 
   dynamo.scan(params, (err, data) => {
-     if (err) console.log(err)
-     else {
-        console.log(data.Items)
-        context.succeed(data.Items)
-     }
+    if (err) console.log(err)
+    else {
+      console.log(data.Items)
+      context.succeed(data.Items)
+    }
   })
 }
