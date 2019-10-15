@@ -1,6 +1,6 @@
 const utils = {
   createTimestamp () {
-    let now = new Date()
+    const now = new Date()
     return now.toISOString()
   }
 }
