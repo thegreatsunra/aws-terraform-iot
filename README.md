@@ -52,11 +52,13 @@ For more information, see [Configuring the AWS CLI](https://docs.aws.amazon.com/
 
 9) Sign back into the AWS console using your AWS account number, new IAM user, password, and MFA code
 
+---
+
 ### Set up all the things
 
 1) [Install Terraform](https://www.terraform.io/downloads.html)
 
-2) [Install Node](https://nodejs.org/) (version 8 or greater)
+2) [Install Node](https://nodejs.org/) (version 10 or greater)
 
 4) [Install Git](https://git-scm.com/) or [GitHub Desktop](https://desktop.github.com/) (which installs Git by default)
 
@@ -131,7 +133,7 @@ Now we have some manual work to do.
 
 9) Name your App Client
 
-10) **Uncheck App Client Secret** (if App Client Secret is checked, your web app hosted on S3 will not work)
+10) **Uncheck "Generate client secret"** (if "Generate client secret" is checked, your web app hosted on S3 will not work)
 
 11) Create your new App Client, and copy its App Client ID
 
@@ -141,7 +143,7 @@ Now we have some manual work to do.
 
 14) Run `terraform apply` and reply `yes` when prompted
 
-**Note to self:** Whenever you run `terraform apply` now, Terraform appears to blow out any App Clients that were created manually. This isn't desirable, of course, but it appears to be the reality until I isolate and fix it.
+**Note to self:** When I originally developed this architecture you couldn't create App Clients via Terraform. Whenever you run `terraform apply` now, however, Terraform deletes any App Clients that were created manually. This isn't desirable, of course, but it appears to be the reality until I isolate and fix the issue, likely by creating the App Client via Terraform rather than manually. 
 
 ### Deploy your API
 
@@ -149,13 +151,13 @@ Now we have some manual work to do.
 
 2) Choose the API Gateway created by Terraform (if you didn't rename it, it's probably called "Api")
 
-3) Click Actions and click "Deploy to Stage"
+3) Click Actions and click "Deploy API"
 
-4) Choose "Prod" as your stage
+4) Choose "Prod" as your Deployment stage
 
 5) Deploy your API
 
-6) Copy the Deploy URL for your API (you'll add it to your web app later)
+6) Copy the Invoke URL for your API (you'll add it to your web app later)
 
 7) Access to your API should now be secured with Cognito
 
@@ -185,29 +187,23 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 2) Make a copy of `gateway/config.example.js` and name it `config.js`
 
-#### Create a Thing
+#### Create a Thing and Thing Certificate
 
 1) Return to the AWS Management Console
 
-2) Navigate to AWS IoT
+2) Navigate to IoT Core
 
 3) Click Manage and then click Register a Thing
 
-4) Give your Thing a name and click Create Thing
+4) Click "Create a Single Thing"
 
-#### Create a Thing Certificate
+5) Give your Thing a name and click Next
 
-1) Click your Thing to view its details
+6) Click Create Certificate
 
-2) Click Security
+6) Download the certificate, public key, private key, and the "Root CA for AWS IoT" (four files in total) **Note to self:** the Root CA flow has changed, and now takes you to documentation that does a poor job explaining which of the four Root CA options you may want to download. You could probably do worse than use [Amazon Root CA 1](https://www.amazontrust.com/repository/AmazonRootCA1.pem)
 
-3) Click Create Certificate
-
-4) Create an IoT Thing Certificate
-
-5) Download the certificate, public key, private key, and the "Root CA for AWS IoT" (four files in total) **Note to self:** the Root CA flow has changed, and now takes you to documentation that does a poor job explaining which of the four Root CA options you may want to download
-
-6) **Click Activate to activate your certificate** (if you miss this step, it won't work!)
+7) **Click Activate to activate your certificate** (if you miss this step, it won't work!)
 
 #### Attach a Thing Policy
 
@@ -215,7 +211,7 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 2) Check the box next to the Policy that was created by Terraform (e.g. "thing")
 
-3) Click Done
+3) Click Register Thing
 
 #### Create a Rule
 
@@ -227,23 +223,19 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 
 4) Name your Rule (e.g. events)
 
-5) Enter `*` for Attribute to match all events **Note to self:** this step has changed as AWS IoT now uses a simplified SQL query syntax (`SELECT * FROM 'events'` seems to work)
+5) For the Rule Query Statement, enter `SELECT * FROM 'events'` seems to work)
 
-6) Enter `events` as your Topic filter (if you choose another Topic name, be sure to change `gateway/config.js` in your Gateway app **Note to self:** AWS IoT now uses a simplified SQl query syntax instead of Topic names
+6) Click Add Action
 
-7) Leave Condition blank
+7) Choose "Send a message to a Lambda function"
 
-8) Click Add Action
+8) Click Configure Action
 
-9) Choose "Invoke a Lambda function passing the message data"
+9) Choose your AWS IoT Lambda Function from the dropdown (i.e. `events` unless you changed it in Terraform)
 
-10) Click Configure Action
+10) Click Add Action
 
-11) Choose your AWS IoT Lambda Function from the dropdown (i.e. `events` unless you changed it in Terraform)
-
-12) Click Add Action
-
-13) Review your Rule and click "Create Rule"
+11) Review your Rule and click "Create Rule"
 
 #### Configure your Gateway
 
@@ -303,3 +295,5 @@ This step is necessary because there's a bug between Terraform and the AWS Manag
 5) Test your app at your S3 URL and make sure it works
 
 ### TODO: Use Cloudflare or something to set up the DNS CNAME for your app hosted on S3
+
+### TODO: Secure your app with HTTPS

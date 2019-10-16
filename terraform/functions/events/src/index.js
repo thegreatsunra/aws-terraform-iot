@@ -6,8 +6,8 @@ const dynamo = new AWS.DynamoDB.DocumentClient({
 const eventsTable = 'events'
 const devicesTable = 'devices'
 
-function createExpressions(event) {
-  let expressions = {
+function createExpressions (event) {
+  const expressions = {
     item: {},
     update: [],
     values: {},
@@ -59,8 +59,8 @@ exports.handler = (event, context) => {
   if (expressions.item.deviceId) {
     const deviceParams = {
       TableName: devicesTable,
-      Key : {
-        id : expressions.item.deviceId
+      Key: {
+        id: expressions.item.deviceId
       },
       UpdateExpression: expressions.update,
       ExpressionAttributeValues: expressions.values,

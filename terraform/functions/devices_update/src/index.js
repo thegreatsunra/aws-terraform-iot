@@ -8,21 +8,21 @@ const table = 'devices'
 exports.handler = (data, context) => {
   const params = {
     TableName: table,
-    Key : {
-      id : data.id
+    Key: {
+      id: data.id
     },
-    UpdateExpression: "set #name = :name",
+    UpdateExpression: 'set #name = :name',
     ExpressionAttributeNames: {
-      "#name": "name"
+      '#name': 'name'
     },
     ExpressionAttributeValues: {
-      ':name' : data.name
+      ':name': data.name
     },
     ReturnValues: 'UPDATED_NEW'
   }
 
   dynamo.update(params, (err, data) => {
-     if (err) console.log(err)
-     else console.log(data)
+    if (err) console.log(err)
+    else console.log(data)
   })
 }

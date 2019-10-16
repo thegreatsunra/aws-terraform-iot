@@ -14,12 +14,12 @@ exports.handler = (data, context) => {
   }
 
   dynamo.query(params, (err, data) => {
-     if (err) {
-       console.log(err)
-       context.fail()
-     } else {
-       console.log(data)
-       context.succeed(data.Items[0])
-      }
+    if (err) {
+      console.log(err)
+      context.fail()
+    } else {
+      console.log(data)
+      context.succeed(data.Items[0])
+    }
   })
 }

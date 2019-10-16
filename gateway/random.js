@@ -16,7 +16,7 @@ const random = {
         max: -92.997
       }
     }
-    let output = {}
+    const output = {}
     const lat = ((Math.floor(Math.random() * ((coords.lat.max * 1000000) - (coords.lat.min * 1000000) + 1) + (coords.lat.min * 1000000))) / 1000000)
     const lng = ((Math.floor(Math.random() * ((coords.lng.max * 1000000) - (coords.lng.min * 1000000) + 1) + (coords.lng.min * 1000000))) / 1000000)
     output.lat = lat
